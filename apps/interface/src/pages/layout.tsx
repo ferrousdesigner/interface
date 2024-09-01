@@ -14,8 +14,8 @@ export default function Layout({
   return (
     <Fragment>
       <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
+        <title>{metadata?.title}</title>
+        <meta name="description" content={metadata?.description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {children}
