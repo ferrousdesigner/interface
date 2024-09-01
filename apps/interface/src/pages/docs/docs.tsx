@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { GetStaticProps } from 'next';
-import { useRouter } from 'next/router';
-import styles from './docs.module.css';
 import Layout from './../layout';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -10,11 +8,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function Docs({ docs }: { docs: any[] }) {
-  const router = useRouter();
-  console.log('docs', docs);
-  const [selectedDoc, setSelectedDoc] = useState();
-
+export default function Docs() {
   return (
     <Layout metadata={{ title: 'Docs', description: 'Docs' }}>
       <h1>Yeysyssy</h1>
