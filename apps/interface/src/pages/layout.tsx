@@ -6,8 +6,8 @@ export default function Layout({
   children,
 }: {
   metadata: {
-    title: string;
-    description: string;
+    title?: string;
+    description?: string;
   };
   children: React.ReactNode;
 }) {
