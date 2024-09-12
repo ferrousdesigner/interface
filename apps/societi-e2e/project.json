@@ -1,0 +1,9 @@
+{
+  "name": "societi-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/societi-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["societi"],
+  "// targets": "to see all targets run: nx show project societi-e2e --web",
+  "targets": {}
+}
