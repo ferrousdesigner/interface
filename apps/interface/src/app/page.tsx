@@ -1,6 +1,6 @@
 import Layout from '../pages/layout';
 import styles from './page.module.css';
-import { Button, Text } from '@interface/ui';
+import { Box, Button, Text } from '@interface/ui';
 
 export default function Index() {
   /*
@@ -17,7 +17,7 @@ export default function Index() {
           </div>
           <Button>Documentation</Button>
         </nav>
-        <div>
+        <Box>
           <div>
             <Text
               inline
@@ -47,7 +47,7 @@ export default function Index() {
               <Button>Documentation</Button>
             </div>
           </div>
-        </div>
+        </Box>
       </div>
     </Layout>
   );
