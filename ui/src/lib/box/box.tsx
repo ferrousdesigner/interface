@@ -1,25 +1,37 @@
+'use client';
+import React from 'react';
 import styled from 'styled-components';
 
 const DivBox = styled.div``;
-
 const SectionBox = styled.section``;
-
 const ArticleBox = styled.article``;
 const AsideBox = styled.aside``;
 
 interface BoxProps {
   children: React.ReactNode;
   variant?: 'div' | 'section' | 'article' | 'aside';
-  layout?: 'flex-row' | 'flex-col' | 'block' | 'inline-block';
-  subLayout?: 'center-top' | 'center-center' | 'center-bottom';
+  layout?:
+    | 'block'
+    | 'inline-block'
+    | 'flex-row'
+    | 'flex-column'
+    | 'grid-center'
+    | 'inline-flex-row'
+    | 'inline-flex-column'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly';
+  gap?: string;
   style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
 const Box = ({
   children,
   variant = 'div',
-  layout = 'flex-row',
-  subLayout = 'center-center',
+  layout = 'block',
+  gap = 'var(--space-md)',
+  onClick,
   style,
 }: BoxProps) => {
   const ActualBox =
@@ -32,26 +44,9 @@ const Box = ({
       : variant === 'aside'
       ? AsideBox
       : DivBox;
-  const subStyle =
-    layout === 'flex-row'
-      ? subLayout === 'center-top'
-        ? { justifyContent: 'center', alignItems: 'flex-start' }
-        : { justifyContent: 'center', alignItems: 'flex-start' }
-      : { justifyContent: 'center', alignItems: 'flex-start' };
-  const boxStyles =
-    layout === 'flex-row'
-      ? {
-          display: 'flex',
-          gap: 'var(--space-md)',
-          alignItems: 'center',
-        }
-      : layout === 'flex-col'
-      ? {
-          display: 'flex',
-          gap: 'var(--space-md)',
-          flexDirection: 'column',
-        }
-      : layout === 'block'
+
+  const layoutStyles =
+    layout === 'block'
       ? {
           display: 'block',
           margin: 'var(--space-md)',
@@ -61,10 +56,68 @@ const Box = ({
           display: 'inline-block',
           margin: 'var(--space-md)',
         }
+      : layout === 'flex-row'
+      ? {
+          display: 'flex',
+          flexDirection: 'row',
+          gap: gap,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }
+      : layout === 'flex-column'
+      ? {
+          display: 'flex',
+          flexDirection: 'column',
+          gap: gap,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }
+      : layout === 'inline-flex-row'
+      ? {
+          display: 'inline-flex',
+          flexDirection: 'row',
+          gap: gap,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }
+      : layout === 'inline-flex-column'
+      ? {
+          display: 'inline-flex',
+          flexDirection: 'column',
+          gap: gap,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }
+      : layout === 'grid-center'
+      ? {
+          display: 'grid',
+          gap: gap,
+          justifyItems: 'center',
+          alignItems: 'center',
+        }
+      : layout === 'space-around'
+      ? {
+          display: 'flex',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+        }
+      : layout === 'space-between'
+      ? {
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }
+      : layout === 'space-evenly'
+      ? {
+          display: 'flex',
+          justifyContent: 'space-evenly',
+        }
       : {};
+
   return (
     <ActualBox
-      style={{ ...boxStyles, ...subStyle, ...style } as React.CSSProperties}
+      style={{ ...layoutStyles, ...style } as React.CSSProperties}
+      onClick={onClick}
     >
       {children}
     </ActualBox>

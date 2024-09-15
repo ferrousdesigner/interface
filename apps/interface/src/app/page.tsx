@@ -1,3 +1,4 @@
+'use client';
 import Layout from '../pages/layout';
 import styles from './page.module.css';
 import { Box, Button, Text } from '@interface/ui';
@@ -44,11 +45,20 @@ export default function Index() {
             <p>A react component library.</p>
             <div>
               <Button variant="primary">Get started</Button>
+              <Button variant="outlined">Learn more</Button>
               <Button>Documentation</Button>
             </div>
           </div>
+          <div>
+            <Button variant="primary">Get started</Button>
+            <Button>Documentation</Button>
+          </div>
         </Box>
       </div>
+      <Box>
+        <Text variant="h1">This is a section</Text>
+        <p>Some content inside a section with block display.</p>
+      </Box>
     </Layout>
   );
 }
