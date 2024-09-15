@@ -1,7 +1,10 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/cypress/**/*",
@@ -15,7 +18,9 @@
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
-    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/ci.yml"
+    ]
   },
   "nxCloudAccessToken": "YzAwZjRmOTgtMmQ2MC00ZmE4LWIxMWUtNmZjYWU4NWUxMmY1fHJlYWQtd3JpdGU=",
   "plugins": [
@@ -52,7 +57,9 @@
   ],
   "targetDefaults": {
     "e2e-ci--**/*": {
-      "dependsOn": ["^build"]
+      "dependsOn": [
+        "^build"
+      ]
     }
   },
   "generators": {
@@ -65,5 +72,7 @@
     "@nx/react": {
       "library": {}
     }
-  }
+  },
+  "defaultBase": "main",
+  "nxCloudId": "66e6cc71593ee07aaa3fd09a"
 }

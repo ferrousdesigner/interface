@@ -1,7 +1,7 @@
 'use client';
 import Layout from '../pages/layout';
 import styles from './page.module.css';
-import { Box, Button, Text } from '@interface/ui';
+import { Box, Button, Divider, Text } from '@interface/ui';
 
 export default function Index() {
   /*
@@ -49,6 +49,11 @@ export default function Index() {
               <Button>Documentation</Button>
             </div>
           </div>
+          <Divider />
+          <Divider color="green" />
+          <Divider thickness="lg" color="brown" />
+          <Divider dashed />
+
           <div>
             <Button variant="primary">Get started</Button>
             <Button>Documentation</Button>
